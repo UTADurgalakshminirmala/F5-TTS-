@@ -29,7 +29,7 @@ from transformers import AutoModel
 import numpy as np
 import soundfile as sf
 
-# Load INF5 from Hugging Face
+# Load IndicF5 from Hugging Face
 repo_id = "ai4bharat/IndicF5"
 model = AutoModel.from_pretrained(repo_id, trust_remote_code=True)
 
