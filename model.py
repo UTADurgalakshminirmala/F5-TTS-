@@ -45,7 +45,7 @@ class INF5Model(PreTrainedModel):
         # Download and load model weights
         safetensors_path = hf_hub_download(config.name_or_path, filename="model.safetensors")
         print(f"Loading model weights from {safetensors_path} (safetensors)...")
-        state_dict = load_file(safetensors_path, device=device)
+        state_dict = load_file(safetensors_path, device=str(device))
 
         # Load the model
         self.ema_model = torch.compile(
