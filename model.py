@@ -47,8 +47,8 @@ class INF5Model(PreTrainedModel):
         # print(f"Loading model weights from {safetensors_path} (safetensors)...")
         # state_dict = load_file(safetensors_path, device=str(device))
 
-        # # Download vocab.txt from HF Hub
-        # vocab_path = hf_hub_download(config.name_or_path, filename="checkpoints/vocab.txt")
+        # Download vocab.txt from HF Hub
+        vocab_path = hf_hub_download(config.name_or_path, filename="checkpoints/vocab.txt")
         
         self.ema_model = load_model(
                 DiT,
