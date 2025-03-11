@@ -37,19 +37,35 @@ class INF5Model(PreTrainedModel):
         super().__init__(config)
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-        # Load the vocoder and model
+        # Load vocoder
         self.vocoder = torch.compile(load_vocoder(vocoder_name="vocos", is_local=False, device=device))
+
+        # Download and load model weights
+        safetensors_path = hf_hub_download(config.name_or_path, filename="model.safetensors")
+        print(f"Loading model weights from {safetensors_path} (safetensors)...")
+        state_dict = load_file(safetensors_path, device=device)
+
+        # Load the model
         self.ema_model = torch.compile(
             load_model(
                 DiT,
                 dict(dim=1024, depth=22, heads=16, ff_mult=2, text_dim=512, conv_layers=4),
-                config.ckpt_path,
+                None,  # Skip loading from file, as we load state_dict directly
                 mel_spec_type="vocos",
                 vocab_file=config.vocab_path,
                 device=device
             )
         )
 
+        # Load state dict into model
+        self.ema_model.load_state_dict(state_dict, strict=False)
+
+    @classmethod
+    def from_pretrained(cls, model_name_or_path, *model_args, **kwargs):
+        config = AutoConfig.from_pretrained(model_name_or_path)
+        config.name_or_path = model_name_or_path
+        return cls(config)
+    
     def forward(self, text: str, ref_audio_path: str, ref_text: str):
         """
         Generate speech given a reference audio & text input.
@@ -105,10 +121,6 @@ class INF5Model(PreTrainedModel):
 
         return np.array(audio_segment.get_array_of_samples())
 
-    @classmethod
-    def from_pretrained(cls, model_name_or_path, *model_args, **kwargs):
-        config = AutoConfig.from_pretrained(model_name_or_path)
-        return cls(config)
 
 
 if __name__ == '__main__':
