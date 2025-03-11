@@ -82,6 +82,10 @@ class INF5Model(PreTrainedModel):
         # Load reference audio & text
         ref_audio, ref_text = preprocess_ref_audio_text(ref_audio_path, ref_text)
 
+        
+        self.ema_model.to(self.device)
+        self.vocoder.to(self.device)
+        
         # Perform inference
         audio, final_sample_rate, _ = infer_process(
             ref_audio,
