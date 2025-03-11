@@ -1,7 +1,5 @@
 # **IndicF5: A Multilingual TTS Fairyteller**
 
-[![Hugging Face](https://img.shields.io/badge/HuggingFace-Model-orange)](https://huggingface.co/ai4bharat/IndicF5)
-
 
 We release **IndicF5**, a **near-human polyglot** **Text-to-Speech (TTS)** model trained on **1417 hours** of high-quality speech from **Rasa, IndicTTS, LIMMITS, and IndicVoices-R**.  
 
