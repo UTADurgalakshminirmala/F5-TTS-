@@ -46,6 +46,8 @@ if audio.dtype == np.int16:
 sf.write("samples/namaste.wav", np.array(audio, dtype=np.float32), samplerate=24000)
 ```
 
+You can find example prompt audios used [here](https://huggingface.co/ai4bharat/IndicF5/tree/main/prompts).
+
 ## References
 
 We would like to extend our gratitude to the authors of  **[F5-TTS](https://github.com/SWivid/F5-TTS)** for their invaluable contributions and inspiration to this work. Their efforts have played a crucial role in advancing  the field of text-to-speech synthesis.
