@@ -43,7 +43,7 @@ class INF5Model(PreTrainedModel):
         self.vocoder = torch.compile(load_vocoder(vocoder_name="vocos", is_local=False, device=device))
 
         # Download and load model weights
-        safetensors_path = hf_hub_download(config.name_or_path, filename="model.safetensors")
+        # safetensors_path = hf_hub_download(config.name_or_path, filename="model.safetensors")
         print(f"Loading model weights from {safetensors_path} (safetensors)...")
         state_dict = load_file(safetensors_path, device=str(device))
 
