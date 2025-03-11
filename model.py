@@ -4,7 +4,7 @@ import os
 current_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(current_dir)
 
-from transformers import PreTrainedModel, PretrainedConfig
+from transformers import PreTrainedModel, PretrainedConfig, AutoConfig
 import torch
 import numpy as np
 from f5_tts.infer.utils_infer import (
