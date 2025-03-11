@@ -12,7 +12,7 @@ IndicF5 supports **11 Indian languages**:
 ```bash
 conda create -n indicf5 python=3.10 -y
 conda activate indicf5
-pip install git+https://github.com/ai4bharat/indicf5.git
+pip install git+https://github.com/ai4bharat/IndicF5.git
 ```
 
 
@@ -22,8 +22,8 @@ from transformers import AutoModel
 import numpy as np
 import soundfile as sf
 
-# Load INF5 from Hugging Face
-repo_id = "ai4bharat/indicf5"
+# Load IndicF5 from Hugging Face
+repo_id = "ai4bharat/IndicF5"
 model = AutoModel.from_pretrained(repo_id, trust_remote_code=True)
 
 # Generate speech
