@@ -43,7 +43,8 @@ audio = model(
 # Normalize and save output
 if audio.dtype == np.int16:
     audio = audio.astype(np.float32) / 32768.0
-sf.write("samples/namaste.wav", np.array(audio, dtype=np.float32), samplerate=24000)
+sf.write("namaste.wav", np.array(audio, dtype=np.float32), samplerate=24000)
+print("Audio saved succesfully.")
 ```
 
 You can find example prompt audios used [here](https://huggingface.co/ai4bharat/IndicF5/tree/main/prompts).
