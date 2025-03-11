@@ -44,14 +44,13 @@ class INF5Model(PreTrainedModel):
 
         # Download and load model weights
         # safetensors_path = hf_hub_download(config.name_or_path, filename="model.safetensors")
-        print(f"Loading model weights from {safetensors_path} (safetensors)...")
-        state_dict = load_file(safetensors_path, device=str(device))
+        # print(f"Loading model weights from {safetensors_path} (safetensors)...")
+        # state_dict = load_file(safetensors_path, device=str(device))
 
-        # Download vocab.txt from HF Hub
-        vocab_path = hf_hub_download(config.name_or_path, filename="checkpoints/vocab.txt")
+        # # Download vocab.txt from HF Hub
+        # vocab_path = hf_hub_download(config.name_or_path, filename="checkpoints/vocab.txt")
         
-        self.ema_model = torch.compile(
-            load_model(
+        self.ema_model = load_model(
                 DiT,
                 dict(dim=1024, depth=22, heads=16, ff_mult=2, text_dim=512, conv_layers=4),
                 None,  # Skip loading from file, as we load state_dict directly
@@ -59,10 +58,10 @@ class INF5Model(PreTrainedModel):
                 vocab_file=vocab_path,
                 device=str(device)
             )
-        )
+        
 
-        # Load state dict into model
-        self.ema_model.load_state_dict(state_dict, strict=False)
+        # # Load state dict into model
+        # self.ema_model.load_state_dict(state_dict, strict=False)
 
     @classmethod
     def from_pretrained(cls, model_name_or_path, *model_args, **kwargs):
