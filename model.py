@@ -50,14 +50,14 @@ class INF5Model(PreTrainedModel):
         # Download vocab.txt from HF Hub
         vocab_path = hf_hub_download(config.name_or_path, filename="checkpoints/vocab.txt")
         
-        self.ema_model = load_model(
+        self.ema_model = torch.compile(load_model(
                 DiT,
                 dict(dim=1024, depth=22, heads=16, ff_mult=2, text_dim=512, conv_layers=4),
                 mel_spec_type="vocos",
                 vocab_file=vocab_path,
                 device=str(device)
             )
-        
+        )
 
         # # Load state dict into model
         # self.ema_model.load_state_dict(state_dict, strict=False)
