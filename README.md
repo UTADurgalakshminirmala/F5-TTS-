@@ -23,7 +23,7 @@ import numpy as np
 import soundfile as sf
 
 # Load INF5 from Hugging Face
-repo_id = "svp19/INF5"
+repo_id = "ai4bharat/indicf5"
 model = AutoModel.from_pretrained(repo_id, trust_remote_code=True)
 
 # Generate speech
