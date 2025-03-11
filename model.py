@@ -17,6 +17,7 @@ from f5_tts.model import DiT
 import soundfile as sf
 import io
 from pydub import AudioSegment, silence
+from huggingface_hub import hf_hub_download
 import os
 
 class INF5Config(PretrainedConfig):
