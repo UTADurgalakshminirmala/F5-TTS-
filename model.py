@@ -63,11 +63,6 @@ class INF5Model(PreTrainedModel):
         # # Load state dict into model
         # self.ema_model.load_state_dict(state_dict, strict=False)
 
-    @classmethod
-    def from_pretrained(cls, model_name_or_path, *model_args, **kwargs):
-        config = AutoConfig.from_pretrained(model_name_or_path)
-        config.name_or_path = model_name_or_path
-        return cls(config)
     
     def forward(self, text: str, ref_audio_path: str, ref_text: str):
         """
