@@ -1,3 +1,21 @@
+---
+datasets:
+- ai4bharat/indicvoices_r
+- ai4bharat/Rasa
+language:
+- as
+- bn
+- gu
+- mr
+- hi
+- kn
+- ml
+- or
+- pa
+- ta
+- te
+pipeline_tag: text-to-speech
+---
 # **IndicF5: High-Quality Text-to-Speech for Indian Languages**
 
 
