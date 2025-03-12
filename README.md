@@ -67,6 +67,9 @@ print("Audio saved succesfully.")
 
 You can find example prompt audios used [here](https://huggingface.co/ai4bharat/IndicF5/tree/main/prompts).
 
+## Terms of Use
+By using this model, you agree to only clone voices for which you have explicit permission. Unauthorized voice cloning is strictly prohibited. Any misuse of this model is the responsibility of the user.
+
 ## References
 
 We would like to extend our gratitude to the authors of  **[F5-TTS](https://github.com/SWivid/F5-TTS)** for their invaluable contributions and inspiration to this work. Their efforts have played a crucial role in advancing  the field of text-to-speech synthesis.
