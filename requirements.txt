@@ -1,0 +1,13 @@
+torch
+torchaudio
+torchvision
+faster-whisper
+soundfile
+librosa
+numpy
+scipy
+sentencepiece
+transformers
+tqdm
+pydub
+ctranslate2
